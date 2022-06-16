@@ -1,4 +1,8 @@
 
-function NewTab() {
-    window.open("templates/etherpad-lite.html");
+function NewTabPublic() {
+    window.open("templates/etherpad-lite-service.html");
+}
+
+function NewTabLocal() {
+    window.open("templates/etherpad-lite-local.html");
 }
