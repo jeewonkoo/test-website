@@ -1,4 +1,4 @@
 
 function NewTab() {
-    window.open("etherpad-lite.html");
+    window.open("templates/etherpad-lite.html");
 }
