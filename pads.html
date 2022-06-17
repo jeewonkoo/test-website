@@ -1,0 +1,72 @@
+<!-- PATH -->
+<!-- C:\Users\jeewonkoo\Desktop\etherpad-lite-test\node_modules\ep_padlist2\templates\pads.html -->
+<html>
+    <head>
+      <title data-l10n-id="ep_padlist2_list_page-title">Pads</title>
+      <meta name="description" content="All Pads">
+      <meta name="viewport" content="width=device-width">
+      <link rel="stylesheet" href="static/plugins/ep_padlist2/static/css/main.css">
+      <script src="static/js/jquery.js" ></script>
+      <script src="static/plugins/ep_padlist2/static/js/main.js"></script>
+      <link rel="localizations" type="application/l10n+json" href="locales.json" />
+      <script src="static/js/html10n.js"></script>
+      <script src="static/js/l10n.js"></script>
+    </head>
+    <body>
+      <div class="head">
+        <h1 data-l10n-id="ep_padlist2_list_heading">Pads</h1>
+        <input type="search" data-l10n-id="ep_padlist2_list_search-box.placeholder" placeholder="Search pads">
+      </div>
+      <ul>
+        <% padIds.forEach((padId) => { %>
+          <li><a href="p/<%= encodeURIComponent(padId) %>"><%= padId %></a>
+            <button onclick="deletePad('<%= padId %>')">
+              DELETE PAD 
+            </button>
+          </li>
+        <% }) %>
+      </ul>
+    
+      <input type="text" id="padId" placeholder="PAD NAME">
+      <button onclick="createPad()">
+        CREATE PAD 
+      </button>  
+      
+    
+    
+    <script type="text/javascript">
+    
+      async function deletePad(padId) {
+        const apiKey ="84a3e839d5695e401c9e0b83fc07013354ea39ca9b7d2378ba05428c73045a43";
+        var url = "http://127.0.0.1:9001/api/1/deletePad?apikey=" + apiKey+ "&padID=" + padId;
+    
+        fetch(url, {
+          method: "GET",
+        })
+    
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    
+        location.reload();
+      }
+    
+      async function createPad() {
+        const padId = document.getElementById('padId').value;
+    
+        const apiKey ="84a3e839d5695e401c9e0b83fc07013354ea39ca9b7d2378ba05428c73045a43";
+        var url = "http://127.0.0.1:9001/api/1/createPad?apikey=" + apiKey+ "&padID=" + padId;
+    
+        fetch(url, {
+          method: "GET",
+        })
+    
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    
+        location.reload();
+      }
+    
+    </script>
+    </body>
+    </html>
+    
