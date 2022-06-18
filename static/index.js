@@ -4,5 +4,5 @@ function NewTabPublic() {
 }
 
 function NewTabLocal() {
-    window.open("templates/etherpad-lite-local.html");
+    window.open("http://127.0.0.1:9001/list");
 }
