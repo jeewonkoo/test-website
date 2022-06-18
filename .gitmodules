@@ -1,0 +1,3 @@
+[submodule "etherpad-lite-test"]
+	path = etherpad-lite-test
+	url = https://github.com/jeewonkoo/etherpad-lite-test.git
